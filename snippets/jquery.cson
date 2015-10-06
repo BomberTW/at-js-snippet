@@ -1,0 +1,553 @@
+'.source.js, .source.ts':
+
+  '$':
+    prefix: '$'
+    body: '''
+    $('$1')$0
+    '''
+  '$.ajaxSend()':
+    prefix: 'ajaxsend'
+    body: '\.ajaxSend(function(${1:event, xhr, settings}) {\n\t${2:/* stuff to do before an AJAX request is sent */};\n})\n$0'
+  '$.ajaxSetup()':
+    prefix: 'ajaxsetup'
+    body: '\.ajaxSetup({\n\turl: \'${1:/path/to/file}\',\n\t${2:type: \'${3:default GET (Other values: POST)}\',}\n\t${4:dataType: \'${5:default: Intelligent Guess (Other values: xml, json, script, or html)}\',}\n\t${6:data: {param1: \'value1\'\\},}\n})\n${7:.done(function() {\n\tconsole.log("success")\n\\})}\n${8:.fail(function() {\n\tconsole.log("error")\n\\})}\n${9:.always(function() {\n\tconsole.log("complete")\n\\})};\n$0'
+  '$.ajaxStart()':
+    prefix: 'ajaxstart'
+    body: '\.ajaxStart(function() {\n\t${1:/* Stuff to do when an AJAX call is started and no other AJAX calls are in progress */};\n})\n$0'
+  '$.ajaxStop()':
+    prefix: 'ajaxstop'
+    body: '\.ajaxStop((function() {\n\t${1:/* stuff to do when all AJAX calls have completed */};\n})\n$0'
+  '$.ajaxSuccess()':
+    prefix: 'ajaxsuccess'
+    body: '\.ajaxSuccess(function(event, xhr, settings) {\n\t${1:/* executes whenever an AJAX request completes successfully */}\n})$0'
+  '$.boxModel()':
+    prefix: 'boxmodel'
+    body: '\$.boxModel(${1:DOMelementArray})\n$0'
+  '$.browser.version':
+    prefix: 'browser'
+    body: '\$.browser.version'
+  '$.browser()':
+    prefix: 'browser'
+    body: '\$.browser.${1:webkit/opera/msie/mozilla}$0'
+  '$.each()':
+    prefix: 'each'
+    body: '\$.each(${1:array/object}, function(${2:index}${3:, ${4:val}}) {\n\t${0: /* iterate through array or object */}\n})'
+  '$.extend()':
+    prefix: 'extend'
+    body: '\$.extend(${1:true}${2:, target object}${3:, object1})\n$0'
+  '$.get()':
+    prefix: 'get'
+    body: '\$.get(\'${1:/path/to/file}\', function(data) {\n\t${3:/*optional stuff to do after success */}\n/})$0'
+  '$.getScript()':
+    prefix: 'get'
+    body: '\$.getScript(\'${1:path/to/file}\', function(data, textStatus) {\n\t${3:/*optional stuff to do after getScript */ }\n})$0'
+  '$.holdReady':
+    prefix: 'holdready'
+    body: '\\\$.holdReady(${1:true/false})'
+  '$.inArray()':
+    prefix: 'inarray'
+    body: '\$.inArray(${1:value}, ${2:array})$0'
+  '$.isEmptyObject()':
+    prefix: 'is'
+    body: '\$.isEmptyObject(\'${1:object}\')$0'
+  '$.isNumeric()':
+    prefix: 'is'
+    body: '\$.isNumeric(\'${1:object}\')$0'
+  '$.isPlainObject()':
+    prefix: 'is'
+    body: '\$.isPlainObject(\'${1:object}\')$0'
+  '$.isWindow()':
+    prefix: 'is'
+    body: '\$.isWindow(\'${1:object}\')$0'
+  '$.map()':
+    prefix: 'map'
+    body: '\$.map(${1:array}, function(${2:item}${3:, ${4:index}}) {\n\t${5:return ${6:something};}\n})'
+  '$.merge()':
+    prefix: 'merge'
+    body: '\$.merge(${1:array1}, ${2:array2})'
+  '$.noop()':
+    prefix: 'noop'
+    body: '\$.noop()$0'
+  '$.now()':
+    prefix: 'now'
+    body: '\$.now()$0'
+  '$.parseJSON()':
+    prefix: 'parse'
+    body: '\$.parseJSON(\'${1:json}\')$0'
+  '$.parseXML()':
+    prefix: 'parse'
+    body: '\$.parseXML(\'${1:XML}\')$0'
+  '$.post()':
+    prefix: 'post'
+    body: '\$.post(\'${1:/path/to/file}\'${2:, param1: \'value1\'}, function(data, textStatus, xhr) {\n\t${3:/*optional stuff to do after success */}\n})$0'
+  '$.sub()':
+    prefix: 'sub'
+    body: '\$.sub()$0'
+  '$.trim()':
+    prefix: 'trim'
+    body: '\$.trim(${1:\'${2:string}\'})$0'
+  '$.type()':
+    prefix: 'type'
+    body: '\$.type(${1:DOMelementArray})$0'
+  '$.unique()':
+    prefix: 'unique'
+    body: '\$.unique(${1:DOMelementArray})\n$0'
+  '$.when()':
+    prefix: 'when'
+    body: '\$.when(${1:deferreds})\n$0'
+  'add':
+    prefix: 'add'
+    body: 'add(\'${1:selector/elements/html}\')$0'
+  'addClass':
+    prefix: 'addClass'
+    body: 'addClass(\'${1:class_name}\')$0'
+  '.addBack()':
+    prefix: 'addback'
+    body: 'addBack(\'${1:selector}\')$0'
+  'after':
+    prefix: 'after'
+    body: 'after(\'${1:Some text}\')$0'
+  '$.ajax()':
+    prefix: 'ajax'
+    body: '\ajax({\n\turl: \'${1:/path/to/file}\',\n\t${2:type: \'${3:default GET (Other values: POST)}\',}\n\t${4:dataType: \'${5:default: Intelligent Guess (Other values: xml, json, script, or html)}\',}\n\t${6:data: {param1: \'value1\'\\},}\n})\n${7:.done(function() {\n\tconsole.log("success")\n\\})}\n${8:.fail(function() {\n\tconsole.log("error")\n\\})}\n${9:.always(function() {\n\tconsole.log("complete")\n\\})};\n$0'
+  '.ajaxComplete()':
+    prefix: 'ajaxComplete'
+    body: 'ajaxComplete(function(event, xhr, settings) {\n\t${1:/* executes whenever an AJAX request completes */}\n})$0'
+  'ajaxError':
+    prefix: 'ajaxerror'
+    body: 'ajaxError(function(${1:event, xhr, settings, thrownError}) {\n\t${2:/* Stuff to do when an AJAX call returns an error */};\n})$0'
+  'andSelf':
+    prefix: 'andSelf'
+    body: 'andSelf()$0'
+  '.animate() with callback':
+    prefix: 'animate'
+    body: 'animate({\n\t${2:param1}: ${3:value1}${4:,\n\t${5:param2}: ${6:value2}}},\n\t${7:speed}, function() {\n\t${0:/* stuff to do after animation is complete */}\n})'
+  'animate':
+    prefix: 'animate'
+    body: 'animate({${1:${2:param1}: ${3:value1}${4:, ${5:param2}: ${6:value2}}}}, ${7:speed})$0'
+  '.append':
+    prefix: 'append'
+    body: 'append(\'${1:Some text}\')$0'
+  '.appendTo()':
+    prefix: 'appendTo'
+    body: 'appendTo(\'${1:selector}\')$0'
+  '.attr() - multiple':
+    prefix: 'attr2'
+    body: 'attr({\n\t${1:property1}: \'${2:value1}\'${3:,\n\t${4:property2}: \'${5:value2}\'\n\}})$0'
+  '.attr() - single':
+    prefix: 'attr'
+    body: 'attr(\'${1:attribute}\', \'${2:value}\')$0'
+  '.before()':
+    prefix: 'before'
+    body: 'before(\'${1:content}\')$0'
+  '.bind':
+    prefix: 'bind'
+    body: 'bind(\'${1:event name}\', ${2:eventData}, function(${3:event}) {\n\t${0:/* Act on the event */}\n})'
+  '.blur':
+    prefix: 'blur'
+    body: 'blur(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  '.change':
+    prefix: 'change'
+    body: 'change(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  '.children()':
+    prefix: 'children'
+    body: 'children(\'${1:selector}\')$0'
+  '.clearQueue()':
+    prefix: 'clearQueue'
+    body: 'clearQueue(${1:queueName})$0'
+  'click':
+    prefix: 'click'
+    body: 'click(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  '.clone':
+    prefix: 'clone'
+    body: 'clone(${1:boolean}, ${2:boolean})$0'
+  '.closest()':
+    prefix: 'closest'
+    body: 'closest(\'${1:selector}\')$0'
+  '.contains()':
+    prefix: 'contains'
+    body: 'contains(\'${1:text to find}\')$0'
+  '.contents()':
+    prefix: 'contents'
+    body: 'contents()$0'
+  '.css() - multiple':
+    prefix: 'css'
+    body: '''
+    css({
+      "${1:property1}": "${2:value1}",
+      "${3:property2}": "${4:value2}"
+    })
+    '''
+  '.css() - single':
+    prefix: 'css1'
+    body: 'css(\'${1:property}\', \'${2:value}\')$0'
+  '.data()':
+    prefix: 'data'
+    body: 'data(\'${1:name}\', ${2:\'value\'})$0'
+  '.dblclick()':
+    prefix: 'dblclick'
+    body: 'dblclick(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  '.delay()':
+    prefix: 'delay'
+    body: 'delay(${1:milliseconds}${2:, \'queueName\'})$0'
+  '.delegate':
+    prefix: 'delegate'
+    body: 'delegate(\'${1:selector}\', \'${2:eventType}\', function(${4:event}) {\n\t$1\n})$0'
+  'dequeue':
+    prefix: 'dequeue'
+    body: 'dequeue(${1:queueName})$0'
+  'die':
+    prefix: 'die'
+    body: 'die(\'${1:eventType}\')$0'
+
+  'document.ready':
+    prefix: 'ready'
+    body: '\$(function() {\n\t$1\n});'
+
+  'Immediately-Invoked Function Expression':
+    prefix: 'iife'
+    body: '''
+    (function(${2:$}) {
+      $3
+    })(${1:jQuery});
+    '''
+
+
+  '.each()':
+    prefix: 'each'
+    body: 'each(${1:function(${2:index}${3:, el}) {\n\t$4\n\}})$0'
+  'end':
+    prefix: 'end'
+    body: 'end()$0'
+  'eq':
+    prefix: 'eq'
+    body: 'eq(${1:index})$0'
+  '.error()':
+    prefix: 'error'
+    body: 'error(${1:function() {\n\t${0:/* Act on the event */}\n\}})'
+  '.fadeIn()':
+    prefix: 'fadeIn'
+    body: 'fadeIn(${1:\'slow/400/fast\'}${2:, function() {\n\t$3\n\}})$0'
+  '.fadeOut()':
+    prefix: 'fadeOut'
+    body: 'fadeOut(\'${1:slow/400/fast}\'${2:, function() {\n\t$3\n\}})$0'
+  '.fadeTo()':
+    prefix: 'fadeto'
+    body: 'fadeTo(\'${1:slow/400/fast}\', ${2:0.5}${3:, function() {\n\t$4\n\}})$0'
+  '.fadeToggle()':
+    prefix: 'fadeToggle'
+    body: 'fadeToggle(\'${1:slow/400/fast}\'${2:, function() {\n\t$3\n\}})$0'
+  '.filter function':
+    prefix: 'filter'
+    body: 'filter(function(index) {\n\t${1:return ${2:something};}\n})$0'
+  '.filter()':
+    prefix: 'filter'
+    body: 'filter($1)$0'
+  '.find()':
+    prefix: 'find'
+    body: 'find(\'${1:selector}\')$0'
+  '.finish()':
+    prefix: 'finish'
+    body: 'finish(\'${1:queue name}\')$0'
+  'first':
+    prefix: 'first'
+    body: 'first()$0'
+  'focus':
+    prefix: 'focus'
+    body: 'focus(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  '.focusin()':
+    prefix: 'focusin'
+    body: 'focusin(${1:function(${2:event}) {\n\t${3:/* Act on the event */}\n\}})$0'
+  '.focusout()':
+    prefix: 'focusout'
+    body: 'focusout(${1:function(${2:event}) {\n\t${3:/* Act on the event */}\n\}})'
+  'get':
+    prefix: 'get'
+    body: 'get(${1:element index})$0'
+  '$.getjson()':
+    prefix: 'getjson'
+    body: '\$.getJSON(\'${1:/path/to/file}\'${2:, {param1: \'value1\'\\}}, function(json, textStatus) {\n\t\t${3:/*optional stuff to do after success */}\n})$0'
+  '.has':
+    prefix: 'has'
+    body: 'has(${1:contained selector/element})$0'
+  '.hasClass':
+    prefix: 'hasClass'
+    body: 'hasClass(\'${1:className}\')$0'
+  'height':
+    prefix: 'height'
+    body: 'height(${1:integer})$0'
+  'hide':
+    prefix: 'hide'
+    body: 'hide(\'${1:slow/400/fast}\'${2:, function() {\n\t$3\n\}})$0'
+  'hover':
+    prefix: 'hover'
+    body: 'hover(function() {\n\t${1:/* Stuff to do when the mouse enters the element */}\n}, function() {\n\t${2:/* Stuff to do when the mouse leaves the element */}\n})$0'
+  '.html':
+    prefix: 'html'
+    body: 'html(${1:Some text and markup})$0'
+  'index':
+    prefix: 'index'
+    body: 'index(${1:selector/element})$0'
+  '.innerHeight':
+    prefix: 'innerHeight'
+    body: 'innerHeight()$0'
+  '.innerWidth':
+    prefix: 'innerWidth'
+    body: 'innerWidth()$0'
+  '.insertAfter()':
+    prefix: 'insertAfter'
+    body: 'insertAfter(\'${1:selector}\')$0'
+  '.insertBefore()':
+    prefix: 'insertBefore'
+    body: 'insertBefore(\'${1:selector}\')$0'
+  'is':
+    prefix: 'is'
+    body: 'is(\'${1:selector}\')$0'
+  'keydown':
+    prefix: 'keydown'
+    body: 'keydown(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'keypress':
+    prefix: 'keypress'
+    body: 'keypress(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'keyup':
+    prefix: 'keyup'
+    body: 'keyup(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'last':
+    prefix: 'last'
+    body: 'last()$0'
+  'live':
+    prefix: 'live'
+    body: 'live(\'${1:click}\', function(${2:event}) {\n\t${0:/* Act on the event */}\n})'
+  '.load':
+    prefix: 'load'
+    body: 'load(${1:function() {\n\t${0:/* Act on the event */}\n\}})'
+
+  '.load':
+    prefix: 'load1'
+    body: 'load(${1:\'/path/to/file\',{\n${2:param1: "value1", param2: "value2"\} },\n\tfunction(){\n\t${3:/* Stuff to do after the page is loaded */}\n}})'
+
+  'map':
+    prefix: 'map'
+    body: 'map(function(${1:index}${2:, ${3:elem}}) {\n\t${4:return ${5:something};}\n})'
+  'mousedown':
+    prefix: 'mousedown'
+    body: 'mousedown(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'mouseenter':
+    prefix: 'mouseenter'
+    body: 'mouseenter(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'mouseleave':
+    prefix: 'mouseleave'
+    body: 'mouseleave(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'mousemove':
+    prefix: 'mousemove'
+    body: 'mousemove(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'mouseout':
+    prefix: 'mouseout'
+    body: 'mouseout(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'mouseover':
+    prefix: 'mouseover'
+    body: 'mouseover(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'mouseup':
+    prefix: 'mouseup'
+    body: 'mouseup(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  '.next':
+    prefix: 'next'
+    body: 'next(${1:selector})$0'
+  '.nextAll':
+    prefix: 'nextAll'
+    body: 'nextAll(${1:selector})$0'
+  '.nextUntil':
+    prefix: 'nextUntil'
+    body: 'nextUntil(${1:selector})$0'
+  '.not()':
+    prefix: 'not'
+    body: 'not(\'${1:selector}\')$0'
+  'off':
+    prefix: 'off'
+    body: 'off()'
+  '.offset':
+    prefix: 'offset'
+    body: 'offset(function(index, currentCoordinates) {\n\t${1:return ${2:someObject};}\n})'
+  '.offset':
+    prefix: 'offset'
+    body: 'offset(${1:coordinates})$0'
+  '.offsetParent()':
+    prefix: 'offsetParent'
+    body: 'offsetParent()$0'
+  '.on()':
+    prefix: 'on'
+    body: 'on(\'${1:click}\'${2:, \'${3:.selector}\'}, function(${4:event}) {\n\t${5:event.preventDefault()}\n\t${6:/* Act on the event */}\n})'
+  '.one':
+    prefix: 'one'
+    body: 'one(\'${1:event name}\', function(${2:event}) {\n\t${0:/* Act on the event */}\n})'
+  '.outerHeight':
+    prefix: 'outerHeight'
+    body: 'outerHeight()$0'
+  '.outerWidth':
+    prefix: 'outerWidth'
+    body: 'outerWidth()$0'
+  '.parent()':
+    prefix: 'parent'
+    body: 'parent(${1:selector})$0'
+  '.parents()':
+    prefix: 'parents'
+    body: 'parents(${1:selector})$0'
+  'parentsUntil':
+    prefix: 'parentsUntil'
+    body: 'parentsUntil(${1:selector})$0'
+  '.prepend':
+    prefix: 'prepend'
+    body: 'prepend(\'${1:Some text}\')$0'
+  '.prependTo()':
+    prefix: 'prependTo'
+    body: 'prependTo(\'${1:selector}\')$0'
+  '.prev()':
+    prefix: 'prev'
+    body: 'prev(${1:selector})$0'
+  '.prevAll()':
+    prefix: 'prevAll'
+    body: 'prevAll(${1:selector})$0'
+  '.prevUntil()':
+    prefix: 'prevUntil'
+    body: 'prevUntil(${1:selector})$0'
+  '.promise()':
+    prefix: 'promise'
+    body: 'promise(${1:\'${2:type}\'${3:, target} })$0'
+  '.prop() - multiple':
+    prefix: 'prop'
+    body: 'prop({\n\t${1:property1}: \'${2:value1}\'},\n\t${3:property2}: \'${4:value2}\'},\n})$0'
+  '.prop() - single':
+    prefix: 'prop'
+    body: 'prop(\'${1:property}\', \'${2:value}\')$0'
+  'reject':
+    prefix: 'reject'
+    body: 'reject(${1:args})$0'
+  '.remove()':
+    prefix: 'remove'
+    body: 'remove()$0'
+  '.removeAttr()':
+    prefix: 'removeAttr'
+    body: 'removeAttr(\'${1:attribute name}\')$0'
+  '.removeClass':
+    prefix: 'removeClass'
+    body: 'removeClass(\'${1:class name}\')$0'
+  '.removeData()':
+    prefix: 'removeData'
+    body: 'removeData(\'${1:data name}\')$0'
+  '.removeProp()':
+    prefix: 'removeprop'
+    body: 'removeProp(\'${1:property name}\')$0'
+  '.replaceAll':
+    prefix: 'replaceAll'
+    body: 'replaceAll(\'${1:data name}\')$0'
+  'replaceWith':
+    prefix: 'replaceWith'
+    body: 'replaceWith(\'${1:htmlString/DOMElement/jQueryObject}\'${2:, function() {\n\t$3\n\}})$0'
+  '.reset()':
+    prefix: 'reset'
+    body: 'reset(${1:function(${2:event}) {\n\t${3:/* Act on the event */}\n\}})$0'
+  '.resize':
+    prefix: 'resize'
+    body: 'resize(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  'resolve':
+    prefix: 'resolve'
+    body: 'resolve(${1:args})$0'
+  'resolveWith':
+    prefix: 'resolveWith'
+    body: 'resolveWith(${1:context}${2:, args})$0'
+  '.scroll()':
+    prefix: 'scroll'
+    body: 'scroll(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  '.scrollLeft()':
+    prefix: 'scrollLeft'
+    body: 'scrollLeft(${1:value})$0'
+  '.scrollTop()':
+    prefix: 'scrollTop'
+    body: 'scrollTop(${1:value})$0'
+  '.select()':
+    prefix: 'select'
+    body: 'select(${1:function(${2:event}) {\n\t${2:/* Act on the event */}\n\}})$0'
+  '.serialize()':
+    prefix: 'serialize'
+    body: 'serialize()$0'
+  '.serializeArray()':
+    prefix: 'serializeArray'
+    body: 'serializeArray()$0'
+  'show':
+    prefix: 'show'
+    body: 'show(\'${1:slow/400/fast}\'${2:, function() {\n\t$3\n\}})$0'
+  '.siblings()':
+    prefix: 'siblings'
+    body: 'siblings(\'${1:selector}\')$0'
+  '.size()':
+    prefix: 'size'
+    body: 'size()$0'
+  '.slice()':
+    prefix: 'slice'
+    body: 'slice(${1:start}${2:, end})$0'
+  '.slideDown()':
+    prefix: 'slideDown'
+    body: 'slideDown(\'${1:slow/400/fast}\'${2:, function() {\n\t$3\n\}})$0'
+  '.slideToggle()':
+    prefix: 'slideToggle'
+    body: 'slideToggle(${1:slow/400/fast})$0'
+  '.slideUp()':
+    prefix: 'slideUp'
+    body: 'slideUp(${1:slow/400/fast})$0'
+  '.stop()':
+    prefix: 'stop'
+    body: 'stop(${1:clearQueue}${2:, gotoEnd})$0'
+  'submit':
+    prefix: 'submit'
+    body: 'submit(${1:function(${2:event}) {\n\t${0:/* Act on the event */}\n\}})'
+  '.text':
+    prefix: 'text'
+    body: 'text(${1:\'some text\'})$0'
+  'then':
+    prefix: 'then'
+    body: 'then(${1:doneCallbacks}, ${2:failCallbacks})$0'
+  '$(this)':
+    prefix: 'this'
+    body: '\$(this)$0'
+  'toArray':
+    prefix: 'toArray'
+    body: 'toArray()$0'
+  '.toggle() (show/hide)':
+    prefix: 'toggle'
+    body: 'toggle(${1:slow/400/fast})$0'
+  '.toggleClass()':
+    prefix: 'toggleClass'
+    body: 'toggleClass(\'${1:selector}\')$0'
+  '.toggle()':
+    prefix: 'toggle'
+    body: 'toggle(function() {\n\t${1:/* Stuff to do every *odd* time the element is clicked */}\n}, function() {\n\t${2:/* Stuff to do every *even* time the element is clicked */}\n})\n$0'
+  'trigger':
+    prefix: 'trigger'
+    body: 'trigger(\'${1:event name}\')$0'
+  'triggerHandler':
+    prefix: 'triggerHandler'
+    body: 'triggerHandler(\'${1:event name}\')$0'
+  '.unbind()':
+    prefix: 'unbind'
+    body: 'unbind(\'${1:event name(s)}\'${2:functionName})$0'
+  '.undelegate()':
+    prefix: 'undelegate'
+    body: 'undelegate(\'${1:selector}\', \'${2:event type}\', \'${3:function}\')'
+  '.unwrap()':
+    prefix: 'unwrap'
+    body: 'unwrap(${1:queueName})$0'
+  '.val()':
+    prefix: 'val'
+    body: 'val(${1:text})$0'
+  '.width':
+    prefix: 'width'
+    body: 'width(${1:integer})$0'
+  'wrap':
+    prefix: 'wrap'
+    body: 'wrap(\'${1:&lt;div class="extra-wrapper"&gt;&lt;/div&gt;}\')$0'
+  'wrapAll':
+    prefix: 'wrapAll'
+    body: 'wrapAll(\'${1:&lt;div class="extra-wrapper"&gt;&lt;/div&gt;}\')$0'
+  'wrapInner':
+    prefix: 'wrapInner'
+    body: 'wrapInner(\'${1:&lt;div class="extra-wrapper"&gt;&lt;/div&gt;}\')$0'
